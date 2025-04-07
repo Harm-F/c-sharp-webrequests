@@ -1,4 +1,4 @@
-﻿<Window x:Class="SimpleWebRequest.MainWindow"
+<Window x:Class="SimpleWebRequest.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Modern Products" Height="450" Width="800"
@@ -88,6 +88,23 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
                 <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto" />
                 <DataGridTextColumn Header="Description" Binding="{Binding ShortDescription}" Width="2*" />
+                <DataGridTemplateColumn Header="Acties" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Bewerken" 
+                                Click="EditButton_Click" 
+                                CommandParameter="{Binding}" 
+                                Style="{StaticResource RoundedButton}" 
+                                Margin="0,0,5,0"/>
+                                <Button Content="Verwijder" 
+                                Click="DeleteButton_Click" 
+                                CommandParameter="{Binding}" 
+                                Style="{StaticResource RoundedButton}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
